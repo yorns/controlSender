@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.1.0)
 project(controlSender VERSION 1.0 LANGUAGES CXX)
 
+include(GNUInstallDirs)
+
 if(EXISTS /opt/boost/include/boost/function.hpp)
     set(BOOST_ROOT /opt/boost)
 endif()
@@ -23,3 +25,9 @@ set_target_properties(controlSender PROPERTIES
         CXX_EXTENSIONS NO
         )
 
+# cmake -DCMAKE_INSTALL_PREFIX=$OECORE_TARGET_SYSROOT/usr/ ..
+install(TARGETS controlSender
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        )
