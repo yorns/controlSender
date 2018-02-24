@@ -26,9 +26,9 @@ int main(int argc, char* argv[])
         sendId = "k";
 
     if (!sendId.empty())
-        client.send(snc::Client::SendType::cl_send, "steeringContmakerol", sendId);
+        client.send(snc::Client::SendType::cl_send, "steeringControl", sendId);
 
-    service.run_one();
+    //service.run_one();
 
     return 0;
 }
